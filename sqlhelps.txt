@@ -12,3 +12,15 @@ INSERT IGNORE INTO temp_table SELECT * FROM table1;
 -- Rename and drop
 RENAME TABLE table1 TO old_table1, temp_table TO table1;
 DROP TABLE old_table1;
+
+
+update value in one table from another with ID
+
+MySQL and MariaDB
+UPDATE
+    Sales_Import SI,
+    RetrieveAccountNumber RAN
+SET
+    SI.AccountNumber = RAN.AccountNumber
+WHERE
+    SI.LeadID = RAN.LeadID;
