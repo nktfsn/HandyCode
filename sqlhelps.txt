@@ -1,0 +1,14 @@
+Easy way to remove duplicates.
+
+-- Create temporary table
+CREATE TABLE temp_table LIKE table1;
+
+-- Add constraint
+ALTER TABLE temp_table ADD UNIQUE(category, image_set_id);
+
+-- Copy data
+INSERT IGNORE INTO temp_table SELECT * FROM table1;
+
+-- Rename and drop
+RENAME TABLE table1 TO old_table1, temp_table TO table1;
+DROP TABLE old_table1;
